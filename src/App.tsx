@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import ExpenseList from "./components/ExpenseList";
+import ExpenseFilter from "./components/ExpenseFilter";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -17,6 +18,11 @@ function App() {
 
   return (
     <>
+      <div className="mb-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+      </div>
       <ExpenseList
         expenses={visibleExpenses}
         onDelete={(id) =>
